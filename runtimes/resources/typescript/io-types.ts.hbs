@@ -1,0 +1,43 @@
+import { StatusCode } from './function-status';
+{{#if inputLength}}
+import { InputNames, Inputs } from './inputs';
+{{/if}}
+{{#if outputLength}}
+import { OutputNames } from './outputs';
+{{/if}}
+
+export interface InputData {
+  from?: {{#if inputLength}}InputNames{{else}}string{{/if}};                        // input name given in the block definition
+  payload: {{#if inputLength}}Inputs{{else}}any{{/if}};                          // input payload - check your input folder definition
+  ctx?: {
+    webSocket?: WebSocketData;              // request context for websocket events
+    query?: Record<string, string>;         // request query parameters
+    headers?: Record<string, string>;       // request headers
+    rawBody?: string;                       // raw body of the request
+    synchronous?: boolean;                  // indicates if the block should wait the whole workflow to finish before responding
+  }
+}
+
+export interface OutputData {
+  to: string;                              // output name that we are sending data to
+  payload: any;                            // output payload that will be sent to the next block
+  synchronous?: boolean;                   // passfoward if the lambda should wait the whole workflow to finish before responding
+  fromWebSocket?: WebSocketData;           // passforward websocket data if the lambda was triggered by a websocket event
+  statusCode?: StatusCode;                 // HTTP status code to be sent back
+}
+
+export interface WebSocketData {
+  connectionId: string;
+  domainName: string;
+  stage: string;
+  routeKey: string;
+}
+
+export interface SendOptions {
+  to?: {{#if outputLength}}OutputNames;{{else}}string;     {{/if}}                        // output name that we are sending data to
+  synchronous?: boolean;                   // indicates if the lambda should waite the whole workflow to finish to respond
+  webSocket?: { 
+    connectionId: string                   // connection id to send data to websocket clients
+  };          
+  statusCode?: StatusCode;                 // HTTP status code to be sent back
+}

@@ -1,0 +1,7 @@
+{
+  "content-type": "application/json",
+  "authorization": "Bearer d34d-b34r-t0k3n",
+  "x-api-key": "d34d-b34r-api-k3y",
+  "x-user-id": "d34d-b34r-user-id",
+  "x-tenant-id": "d34d-b34r-tenant-id"
+}

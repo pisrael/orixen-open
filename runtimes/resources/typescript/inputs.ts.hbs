@@ -1,0 +1,8 @@
+{{#if hasInterfaces}}
+{{#each items}}
+import { {{this.type}} } from '../inputs/{{this.file}}';
+{{/each}}
+
+export type Inputs = {{#each items}}{{this.type}}{{#unless @last}} | {{/unless}}{{/each}}
+export type InputNames = {{#each names}}'{{this}}'{{#unless @last}} | {{/unless}}{{/each}}
+{{/if}}

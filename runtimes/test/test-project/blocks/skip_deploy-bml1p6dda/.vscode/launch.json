@@ -1,0 +1,51 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/_lib/cli.ts",
+      "args": [
+        "${file}",
+        "",
+        "${workspaceFolder}/.orixen/request/request_headers.json"
+      ],
+      "runtimeArgs": [
+        "--require",
+        "ts-node/register",
+        "--enable-source-maps"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "PROJECT_ENV": "${workspaceFolder}/../../.env",
+        "TS_NODE_COMPILER_OPTIONS": "{\"sourceMap\": true}"
+      },
+      "windows": {
+        "env": {
+          "PROJECT_ENV": "${workspaceFolder}/../../.env",
+          "USER_ENV": "${env:USERPROFILE}/.orixen/projects/pmk7p2ij6/.env",
+          "TS_NODE_COMPILER_OPTIONS": "{\"sourceMap\": true}"
+        }
+      },
+      "osx": {
+        "env": {
+          "PROJECT_ENV": "${workspaceFolder}/../../.env",
+          "USER_ENV": "${env:HOME}/.orixen/projects/pmk7p2ij6/.env",
+          "TS_NODE_COMPILER_OPTIONS": "{\"sourceMap\": true}"
+        }
+      },
+      "linux": {
+        "env": {
+          "PROJECT_ENV": "${workspaceFolder}/../../.env",
+          "USER_ENV": "${env:HOME}/.orixen/projects/pmk7p2ij6/.env",
+          "TS_NODE_COMPILER_OPTIONS": "{\"sourceMap\": true}"
+        }
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
+  ]
+}

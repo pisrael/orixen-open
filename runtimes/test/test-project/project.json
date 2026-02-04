@@ -1,0 +1,546 @@
+{
+  "blocks": [
+    {
+      "id": "bmk7p2nf8",
+      "deployId": "bmk7p2nf8",
+      "x": 746.4618747693966,
+      "y": 304.1367739696448,
+      "isPrimitive": true,
+      "type": "apiTrigger",
+      "title": "_async",
+      "icon": "Globe",
+      "category": "trigger",
+      "width": 50,
+      "height": 50,
+      "zIndex": 1000,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "omk7p2nf9",
+          "name": "Default",
+          "x": 50,
+          "y": 25
+        }
+      ],
+      "properties": {
+        "path": "/async",
+        "method": "GET",
+        "isSynchronous": false
+      },
+      "appVersion": "0.0.32",
+      "description": "GET /async"
+    },
+    {
+      "id": "bmk7p2se9",
+      "deployId": "function_a",
+      "x": 894.3342151949286,
+      "y": 281.79634843772993,
+      "isPrimitive": true,
+      "type": "function",
+      "title": "Function A",
+      "icon": "Function",
+      "category": "process",
+      "width": 100,
+      "height": 100,
+      "zIndex": 1000,
+      "inputs": [
+        {
+          "id": "imk7p2sea",
+          "name": "schedule",
+          "x": 0,
+          "y": 25
+        },
+        {
+          "id": "iml5ip1fg",
+          "name": "asynch",
+          "x": 0,
+          "y": 50
+        },
+        {
+          "id": "iml5ip1fv",
+          "name": "sync",
+          "x": 0,
+          "y": 75
+        }
+      ],
+      "outputs": [
+        {
+          "id": "omk7p2seb",
+          "name": "sync",
+          "x": 100,
+          "y": 33.333333333333336
+        },
+        {
+          "id": "omk7p3q4u",
+          "name": "async",
+          "x": 100,
+          "y": 66.66666666666667
+        }
+      ],
+      "properties": {
+        "language": "TypeScript",
+        "lambdaRuntime": "nodejs22.x",
+        "lambdaMemory": 128,
+        "lambdaTimeout": 60,
+        "lambdaEphemeralStorage": 512,
+        "lambdaArchitecture": "x86_64",
+        "lambdaProvisionedConcurrency": 0,
+        "lambdaMaximumBatchingWindow": 0,
+        "dependsOn": [
+          "bmk7p31wi"
+        ]
+      },
+      "appVersion": "0.0.32",
+      "status": "unpublished"
+    },
+    {
+      "id": "bmk7p2umq",
+      "deployId": "function_b",
+      "x": 1080.504427960886,
+      "y": 264.77507184198527,
+      "isPrimitive": true,
+      "type": "function",
+      "title": "Function B",
+      "icon": "Function",
+      "category": "process",
+      "width": 100,
+      "height": 100,
+      "zIndex": 1000,
+      "inputs": [
+        {
+          "id": "imk7p2umr",
+          "name": "default in",
+          "x": 0,
+          "y": 50
+        }
+      ],
+      "outputs": [
+        {
+          "id": "omk7p2ums",
+          "name": "default out",
+          "x": 100,
+          "y": 50
+        }
+      ],
+      "properties": {
+        "language": "TypeScript",
+        "lambdaRuntime": "nodejs22.x",
+        "lambdaMemory": 128,
+        "lambdaTimeout": 60,
+        "lambdaEphemeralStorage": 512,
+        "lambdaArchitecture": "x86_64",
+        "lambdaProvisionedConcurrency": 0,
+        "lambdaMaximumBatchingWindow": 0
+      },
+      "appVersion": "0.0.32",
+      "status": "unpublished"
+    },
+    {
+      "id": "bmk7p2y8w",
+      "deployId": "bmk7p2y8w",
+      "x": 1254.9725130672691,
+      "y": 291.3708165228363,
+      "isPrimitive": true,
+      "type": "response",
+      "title": "Response",
+      "icon": "End",
+      "category": "end",
+      "width": 40,
+      "height": 40,
+      "zIndex": 1000,
+      "inputs": [
+        {
+          "id": "imk7p2y8x",
+          "name": "Response",
+          "x": -7.5,
+          "y": 20
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "appVersion": "0.0.32"
+    },
+    {
+      "id": "bmk7p31wi",
+      "deployId": "bmk7p31wi",
+      "x": 759.2278322162049,
+      "y": 696.6899654590057,
+      "isPrimitive": true,
+      "type": "wsTrigger",
+      "title": "WebSocket Test",
+      "icon": "Globe",
+      "category": "trigger",
+      "width": 50,
+      "height": 50,
+      "zIndex": 1000,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "omk7p31wj",
+          "name": "Default",
+          "x": 50,
+          "y": 25
+        }
+      ],
+      "properties": {
+        "wsUrlEnvName": "WS_SOCKET_TEST"
+      },
+      "appVersion": "0.0.32",
+      "description": "WebSocket Test"
+    },
+    {
+      "id": "bmk7p54rc",
+      "deployId": "bmk7p54rc",
+      "x": 751.7810237055669,
+      "y": 434.98783779943204,
+      "isPrimitive": true,
+      "type": "apiTrigger",
+      "title": "_sync",
+      "icon": "Globe",
+      "category": "trigger",
+      "width": 50,
+      "height": 50,
+      "zIndex": 1000,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "omk7p54rd",
+          "name": "Default",
+          "x": 50,
+          "y": 25
+        }
+      ],
+      "properties": {
+        "path": "/sync",
+        "method": "GET",
+        "isSynchronous": true
+      },
+      "appVersion": "0.0.32",
+      "description": "GET /sync"
+    },
+    {
+      "id": "bmk7p5zse",
+      "deployId": "ws_handler",
+      "x": 894.3342151949284,
+      "y": 670.0942207781546,
+      "isPrimitive": true,
+      "type": "function",
+      "title": "WS Handler",
+      "icon": "Function",
+      "category": "process",
+      "width": 100,
+      "height": 100,
+      "zIndex": 1000,
+      "inputs": [
+        {
+          "id": "imk7p5zsf",
+          "name": "default in",
+          "x": 0,
+          "y": 50
+        }
+      ],
+      "outputs": [
+        {
+          "id": "omk7paj48",
+          "name": "queue",
+          "x": 100,
+          "y": 33.333333333333336
+        },
+        {
+          "id": "omk7pczpr",
+          "name": "response",
+          "x": 100,
+          "y": 66.66666666666667
+        }
+      ],
+      "properties": {
+        "language": "TypeScript",
+        "lambdaRuntime": "nodejs22.x",
+        "lambdaMemory": 128,
+        "lambdaTimeout": 60,
+        "lambdaEphemeralStorage": 512,
+        "lambdaArchitecture": "x86_64",
+        "lambdaProvisionedConcurrency": 0,
+        "lambdaMaximumBatchingWindow": 0
+      },
+      "appVersion": "0.0.32",
+      "status": "unpublished"
+    },
+    {
+      "id": "bmk7p7v1m",
+      "deployId": "callback",
+      "x": 1278.042421881859,
+      "y": 463.52887123408254,
+      "isPrimitive": true,
+      "type": "function",
+      "title": "Callback",
+      "icon": "Function",
+      "category": "process",
+      "width": 100,
+      "height": 100,
+      "zIndex": 1000,
+      "inputs": [
+        {
+          "id": "imk7p7v1n",
+          "name": "from asynch",
+          "x": 0,
+          "y": 33.333333333333336
+        },
+        {
+          "id": "iml5ioi5x",
+          "name": "from queue",
+          "x": 0,
+          "y": 66.66666666666667
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "language": "TypeScript",
+        "lambdaRuntime": "nodejs22.x",
+        "lambdaMemory": 128,
+        "lambdaTimeout": 60,
+        "lambdaEphemeralStorage": 512,
+        "lambdaArchitecture": "x86_64",
+        "lambdaProvisionedConcurrency": 0,
+        "lambdaMaximumBatchingWindow": 0
+      },
+      "appVersion": "0.0.32",
+      "status": "unpublished"
+    },
+    {
+      "id": "bmk7p8bmh",
+      "deployId": "bmk7p8bmh",
+      "x": 741.1427258332263,
+      "y": 180.73251865049585,
+      "isPrimitive": true,
+      "type": "scheduleTrigger",
+      "title": "Schedule Trigger",
+      "icon": "Clock",
+      "category": "trigger",
+      "width": 50,
+      "height": 50,
+      "zIndex": 1000,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "omk7p8bmi",
+          "name": "Output",
+          "x": 50,
+          "y": 25
+        }
+      ],
+      "properties": {
+        "schedule": "0 0 * * ? *",
+        "enabled": true
+      },
+      "appVersion": "0.0.32",
+      "description": "Run at 00:00:00 every day"
+    },
+    {
+      "id": "bmk7pammo",
+      "deployId": "bmk7pammo",
+      "x": 1086.8874066842905,
+      "y": 600.9452846079425,
+      "isPrimitive": true,
+      "type": "queue",
+      "title": "Callback Queue",
+      "icon": "ListQueue",
+      "category": "process",
+      "width": 100,
+      "height": 100,
+      "zIndex": 1000,
+      "inputs": [
+        {
+          "id": "imk7pammp",
+          "name": "Input",
+          "x": 0,
+          "y": 50
+        }
+      ],
+      "outputs": [
+        {
+          "id": "omk7pammq",
+          "name": "Output",
+          "x": 100,
+          "y": 50
+        }
+      ],
+      "properties": {
+        "fifo": false,
+        "visibilityTimeout": 60,
+        "messageRetentionPeriod": 345600,
+        "delaySeconds": 0
+      },
+      "appVersion": "0.0.32"
+    },
+    {
+      "id": "bmk7plb3v",
+      "deployId": "bmk7plb3v",
+      "x": 1070.9299598757798,
+      "y": 742.4346463100704,
+      "isPrimitive": true,
+      "type": "response",
+      "title": "Response",
+      "icon": "End",
+      "category": "end",
+      "width": 40,
+      "height": 40,
+      "zIndex": 1000,
+      "inputs": [
+        {
+          "id": "imk7plb3w",
+          "name": "Response",
+          "x": -7.5,
+          "y": 20
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "appVersion": "0.0.32"
+    },
+    {
+      "id": "bml1p6dda",
+      "deployId": "skip_deploy",
+      "x": 891.1377777877046,
+      "y": 87.29292014904549,
+      "isPrimitive": true,
+      "type": "function",
+      "title": "Skip Deploy",
+      "icon": "Function",
+      "category": "process",
+      "width": 100,
+      "height": 100,
+      "zIndex": 1000,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "language": "TypeScript",
+        "lambdaRuntime": "nodejs22.x",
+        "lambdaMemory": 128,
+        "lambdaTimeout": 60,
+        "lambdaEphemeralStorage": 512,
+        "lambdaArchitecture": "x86_64",
+        "lambdaProvisionedConcurrency": 0,
+        "lambdaMaximumBatchingWindow": 0,
+        "skipDeploy": true
+      },
+      "appVersion": "0.0.35",
+      "status": "unpublished"
+    }
+  ],
+  "connections": [
+    {
+      "id": "bmk7p2se9-omk7p2seb-bmk7p2umq-imk7p2umr",
+      "fromBlockId": "bmk7p2se9",
+      "toBlockId": "bmk7p2umq",
+      "fromConnectorId": "omk7p2seb",
+      "toConnectorId": "imk7p2umr",
+      "isTemporary": false,
+      "connectionType": "regular"
+    },
+    {
+      "id": "bmk7p2umq-omk7p2ums-bmk7p2y8w-imk7p2y8x",
+      "fromBlockId": "bmk7p2umq",
+      "toBlockId": "bmk7p2y8w",
+      "fromConnectorId": "omk7p2ums",
+      "toConnectorId": "imk7p2y8x",
+      "isTemporary": false,
+      "connectionType": "regular"
+    },
+    {
+      "id": "bmk7p31wi-omk7p31wj-bmk7p5zse-imk7p5zsf",
+      "fromBlockId": "bmk7p31wi",
+      "toBlockId": "bmk7p5zse",
+      "fromConnectorId": "omk7p31wj",
+      "toConnectorId": "imk7p5zsf",
+      "isTemporary": false,
+      "connectionType": "regular"
+    },
+    {
+      "id": "bmk7p2se9-omk7p3q4u-bmk7p7v1m-imk7p7v1n",
+      "fromBlockId": "bmk7p2se9",
+      "toBlockId": "bmk7p7v1m",
+      "fromConnectorId": "omk7p3q4u",
+      "toConnectorId": "imk7p7v1n",
+      "isTemporary": false,
+      "connectionType": "queue",
+      "properties": {
+        "fifo": false,
+        "visibilityTimeout": 60,
+        "messageRetentionPeriod": 345600,
+        "delaySeconds": 0,
+        "batchSize": 1
+      }
+    },
+    {
+      "id": "bmk7p5zse-omk7paj48-bmk7pammo-imk7pammp",
+      "fromBlockId": "bmk7p5zse",
+      "toBlockId": "bmk7pammo",
+      "fromConnectorId": "omk7paj48",
+      "toConnectorId": "imk7pammp",
+      "isTemporary": false,
+      "connectionType": "regular"
+    },
+    {
+      "id": "bmk7p5zse-omk7pczpr-bmk7plb3v-imk7plb3w",
+      "fromBlockId": "bmk7p5zse",
+      "toBlockId": "bmk7plb3v",
+      "fromConnectorId": "omk7pczpr",
+      "toConnectorId": "imk7plb3w",
+      "isTemporary": false,
+      "connectionType": "regular"
+    },
+    {
+      "id": "bmk7pammo-omk7pammq-bmk7p7v1m-iml5ioi5x",
+      "fromBlockId": "bmk7pammo",
+      "toBlockId": "bmk7p7v1m",
+      "fromConnectorId": "omk7pammq",
+      "toConnectorId": "iml5ioi5x",
+      "isTemporary": false,
+      "connectionType": "regular"
+    },
+    {
+      "id": "bmk7p8bmh-omk7p8bmi-bmk7p2se9-imk7p2sea",
+      "fromBlockId": "bmk7p8bmh",
+      "toBlockId": "bmk7p2se9",
+      "fromConnectorId": "omk7p8bmi",
+      "toConnectorId": "imk7p2sea",
+      "isTemporary": false,
+      "connectionType": "regular"
+    },
+    {
+      "id": "bmk7p2nf8-omk7p2nf9-bmk7p2se9-iml5ip1fg",
+      "fromBlockId": "bmk7p2nf8",
+      "toBlockId": "bmk7p2se9",
+      "fromConnectorId": "omk7p2nf9",
+      "toConnectorId": "iml5ip1fg",
+      "isTemporary": false,
+      "connectionType": "regular"
+    },
+    {
+      "id": "bmk7p54rc-omk7p54rd-bmk7p2se9-iml5ip1fv",
+      "fromBlockId": "bmk7p54rc",
+      "toBlockId": "bmk7p2se9",
+      "fromConnectorId": "omk7p54rd",
+      "toConnectorId": "iml5ip1fv",
+      "isTemporary": false,
+      "connectionType": "regular"
+    }
+  ],
+  "databases": [],
+  "project": {
+    "projectName": "Test Project",
+    "projectId": "pmk7p2ij6",
+    "includeVpc": false,
+    "vpcId": "",
+    "includeFixedIp": false,
+    "agentType": "claude",
+    "agentCommand": "claude --permission-mode plan \"{prompt}\""
+  },
+  "canvas": {
+    "zoomLevel": 0.6999999999999996,
+    "panX": -96.79644445139297,
+    "panY": 124.8949558956682
+  },
+  "version": "0.0.35"
+}

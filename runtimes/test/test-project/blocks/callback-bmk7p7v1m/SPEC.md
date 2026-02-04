@@ -1,0 +1,1 @@
+Receives a callback and calls it as a POST with message “{status: done}”

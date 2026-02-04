@@ -1,0 +1,5 @@
+myProp1: "val1"
+myMultilineProp: |
+  Good morning people!
+  This is a "multiline" test.
+myNumber: 3432

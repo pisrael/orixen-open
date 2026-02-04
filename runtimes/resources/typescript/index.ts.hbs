@@ -1,0 +1,25 @@
+
+import BLOCK_PROPERTIES from './_lib/block-properties';
+{{#if inputLength}}
+import { InputData } from './_lib/io-types';
+import { Inputs } from './_lib/inputs';
+{{/if}}
+{{#if outputLength}}
+import { Outputs{{#gt outputLength 1}}{{/gt}} } from './_lib/outputs';
+import { SendOptions } from './_lib/io-types';
+{{/if}}
+
+/**
+ {{#if inputLength}}* For input definitions check types of {@link Inputs}.{{/if}}
+ {{#if outputLength}}* For output definitions check types of {@link Outputs}.{{/if}}
+ */
+async function run({{#if inputLength}}input: InputData{{/if}}{{#if outputLength}}{{#if inputLength}}, {{else}}_, {{/if}}send: (payload: Outputs{{#gt outputLength 1}}, options: SendOptions{{/gt}}) => void{{else}}, _{{/if}}) {
+  {{#if inputLength}}
+  console.log(JSON.stringify(input, null, 2));
+  {{/if}}
+  {{#if outputLength}}
+  send({ data: 'Hello World'}{{#gt outputLength 1}}, {to: '{{../firstOutputName}}'}{{/gt}});
+  {{/if}}
+}
+
+export default run;

@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.873.0",
+    "@types/node": "^22.13.13",
+    "@types/aws-lambda": "^8.10.148",
+    "aws-sdk": "^2.1692.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2",
+    "shx": "^0.4.0"
+  },
+  "scripts": {
+    "build": "shx rm -rf dist && npm install && tsc && shx cp package.json dist && npm install --production --prefix dist"
+  }
+}
