@@ -4,8 +4,7 @@ Code generation library for Orixen projects — generates TypeScript and Terrafo
 
 ## Prerequisites
 
-- Node.js >= 18
-- TypeScript
+- Node.js >= 20
 
 ## Installation
 
@@ -16,6 +15,14 @@ npm install
 ## Usage
 
 The CLI accepts three positional arguments: `<project-path> <runtime> <command>`.
+
+| Argument | Options | Default |
+|---|---|---|
+| `project-path` | Path to an Orixen project directory | Current directory |
+| `runtime` | `local`, `aws` | `local` |
+| `command` | `generate-lib`, `deploy` | `generate-lib` |
+
+The project directory must contain a `project.json` file describing the blocks and connections.
 
 ### Generate library code (local development)
 
@@ -39,7 +46,15 @@ The AWS region defaults to `us-east-1` and can be overridden with the `AWS_REGIO
 AWS_REGION=eu-west-1 npm run generate:aws
 ```
 
-## Project Structure
+## Supported block types
+
+- **Function** — Lambda functions (TypeScript, Python, Go, Java)
+- **API** — HTTP API triggers (API Gateway v2)
+- **WebSocket** — WebSocket API triggers
+- **Queue** — SQS queue triggers
+- **Schedule** — EventBridge schedule triggers
+
+## Project structure
 
 ```
 runtimes/
@@ -47,15 +62,26 @@ runtimes/
 ├── filesystem/               # File system abstraction
 ├── lib/
 │   ├── GeneratorInterface.ts # Core generator interface
+│   ├── types/                # Domain models (blocks, connections, projects)
 │   ├── terraform/            # Terraform serialization utilities
+│   ├── utils/                # Shared utilities
 │   └── typescript/
 │       ├── common/           # Shared TypeScript generation logic
 │       └── aws/              # AWS-specific code generation
 │           └── terraform/    # AWS Terraform resource definitions
-└── test/                     # Test suite
+├── resources/                # Handlebars templates
+└── test/                     # Unit, integration, and e2e tests
 ```
 
-## Running Tests
+## Build
+
+```bash
+npm run build
+```
+
+Compiles TypeScript to `dist/`.
+
+## Running tests
 
 ```bash
 # Run all tests
