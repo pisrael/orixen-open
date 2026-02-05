@@ -5,7 +5,7 @@ export { generateBlockProperties } from './generateBlockProperties';
 export { generateIndexTs } from './generateIndexTs';
 export { generateConnectorCode } from './generateConnectorCode';
 export { generateBlockLibFiles } from './generateBlockLibFiles';
-export { ParsedConnectors } from './types';
+export type { ParsedConnectors } from './types';
 export { generateRequestHeadersFile } from './development/generateRequestHeadersFile';
 export { generateVsCodeLaunchConfig } from './development/generateVsCodeLaunchConfig';
 export { generateDevelopmentLibFiles } from './development/generateDevelopmentLibFiles';
