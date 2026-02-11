@@ -20,9 +20,16 @@ export type {
   FunctionBlockSchema,
 } from "./blocks/FunctionBlock";
 export type {
+  AwsLambdaConfig,
   FunctionBlockLambdaProperties,
   LambdaRuntime,
 } from "./blocks/FunctionBlockLambda";
+export type {
+  DeployTarget as ExecutionTarget,
+  CloudProvider as ExecutionProvider,
+  DeployType as ExecutionRuntime,
+  ProviderTypeConfig as ProviderRuntimeConfig,
+} from "./blocks/DeployTarget";
 export type { PendingBlock } from "./blocks/PendingBlock";
 export type { PublishOptions } from "./blocks/PublishOptions";
 export type {

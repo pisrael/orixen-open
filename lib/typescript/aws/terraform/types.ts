@@ -1,4 +1,4 @@
-import { LambdaRuntime } from '../../../types/blocks/FunctionBlockLambda';
+import type { LambdaRuntime } from '../../../types/blocks/FunctionBlockLambda';
 
 export {
   TerraformItem,

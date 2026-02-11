@@ -2,7 +2,7 @@ import {
   Block,
   BlockSchema
 } from './Block';
-import { FunctionBlockLambdaProperties } from './FunctionBlockLambda';
+import { DeployTarget } from './DeployTarget';
 
 export interface FunctionBlock extends Block {
   type: 'function';
@@ -13,16 +13,14 @@ export interface FunctionBlock extends Block {
     languageVersion: string;
     skipDeploy?: boolean;
     dependsOn?: string[];
-    ec2?: any;
-    fargate?: any;
-    lambda?: FunctionBlockLambdaProperties;
+    deployTarget?: DeployTarget;
   };
   publishData?: FunctionBlockPublishData;
 }
 
 export type FunctionBlockStatus = 'new' | 'unpublished' | 'published' | null;
 
-export type FunctionLanguage = 
+export type FunctionLanguage =
   | 'typescript'
   | 'javascript'
   | 'python'
@@ -64,7 +62,7 @@ export interface FunctionBlockPublishData {
   }
 }
 
-export type FunctionBlockPublishVisibility = 
+export type FunctionBlockPublishVisibility =
   | 'public'
   | 'project'
   | 'organization'

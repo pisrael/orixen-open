@@ -1,18 +1,23 @@
-export interface FunctionBlockLambdaProperties {
+export interface AwsLambdaConfig {
+  provider: 'aws';
+  runtime: 'serverless';
   lambdaRuntime: LambdaRuntime;
   lambdaMemory: number; // 128 MB to 10,240 MB
   lambdaTimeout: number; // 1 to 900 seconds (15 minutes)
   lambdaEphemeralStorage: number; // 512 MB to 10,240 MB (/tmp directory)
   lambdaArchitecture: 'x86_64' | 'arm64';
   lambdaReservedConcurrentExecutions?: number; // Limit concurrent executions
-  lambdaProvisionedConcurrency: number;   
+  lambdaProvisionedConcurrency: number;
   lambdaBatchSize?: number;
   lambdaMaximumBatchingWindowInSeconds?: number;
   deployAsDockerImage?: boolean;
 }
 
-export type LambdaRuntime = 
-  | 'nodejs20.x' 
+/** @deprecated Use AwsLambdaConfig instead */
+export type FunctionBlockLambdaProperties = AwsLambdaConfig;
+
+export type LambdaRuntime =
+  | 'nodejs20.x'
   | 'nodejs22.x'
   | 'python3.9'
   | 'python3.10'

@@ -1,10 +1,11 @@
+import { getItemReference } from '../../../../terraform/serializeTerraform/getItemReference';
 import { FunctionBlock } from '../../../../types/blocks/FunctionBlock';
+import { AwsLambdaConfig } from '../../../../types/blocks/FunctionBlockLambda';
 import {
   getBlockFolderName,
   getBlockPath
 } from '../../../../utils';
 import { ProjectInfra } from '../createProjectInfra';
-import { getItemReference } from '../../../../terraform/serializeTerraform/getItemReference';
 import {
   TerraformDataArchiveFile,
   TerraformDataAwsCallerIdentity,
@@ -120,7 +121,8 @@ function createLambda(
   projectInfra: ProjectInfra,
   region: string,
 ): {lambda: TerraformResourceLambdaFunction, build: TerraformResourceNull, archive?: TerraformDataArchiveFile, ecr?: TerraformResourceEcrRepository} {
-  if (block.properties.lambda?.deployAsDockerImage) {
+  const lambdaConfig = block.properties.deployTarget?.config as AwsLambdaConfig | undefined;
+  if (lambdaConfig?.deployAsDockerImage) {
     if (!projectInfra.awsCallerIdentity) {
       throw new Error('AWS Caller Identity is required for deploying Lambda as Docker Image');
     }
@@ -154,6 +156,7 @@ function createLambdaZip(
   terraformPrefix: string,
   envVars: Record<string, string>,
 ): {lambda: TerraformResourceLambdaFunction, build: TerraformResourceNull, archive: TerraformDataArchiveFile} {
+  const lambdaConfig = block.properties.deployTarget?.config as AwsLambdaConfig | undefined;
   const build: TerraformResourceNull = {
     key: 'resource',
     name: `${lambdaPrefix}-build`,
@@ -197,10 +200,10 @@ function createLambdaZip(
     properties: {
       function_name: lambdaPrefix,
       handler: '_lib/handler.handlerFunction',
-      runtime: block.properties.lambda?.lambdaRuntime || 'nodejs22.x',
-      timeout: block.properties.lambda?.lambdaTimeout || 60,
+      runtime: lambdaConfig?.lambdaRuntime || 'nodejs22.x',
+      timeout: lambdaConfig?.lambdaTimeout || 60,
       role: getItemReference(role, 'arn'),
-      memory_size: block.properties.lambda?.lambdaMemory || 1024,
+      memory_size: lambdaConfig?.lambdaMemory || 1024,
       filename: archive.properties.output_path,
       source_code_hash: getItemReference(archive, 'output_base64sha256'),
       environment: {
@@ -226,6 +229,7 @@ function createLambdaDockerImage(
   awsCallerIdentity: TerraformDataAwsCallerIdentity,
   region: string,
 ): {lambda: TerraformResourceLambdaFunction, build: TerraformResourceNull, ecr: TerraformResourceEcrRepository} {
+  const lambdaConfig = block.properties.deployTarget?.config as AwsLambdaConfig | undefined;
 
   const ecr: TerraformResourceEcrRepository = {
     key: 'resource',
@@ -284,9 +288,9 @@ function createLambdaDockerImage(
           value:['_lib/handler.handlerFunction']
         }
       },
-      timeout: block.properties.lambda?.lambdaTimeout || 60,
+      timeout: lambdaConfig?.lambdaTimeout || 60,
       role: getItemReference(role, 'arn'),
-      memory_size: block.properties.lambda?.lambdaMemory || 1024,
+      memory_size: lambdaConfig?.lambdaMemory || 1024,
       environment: {
         variables: {
           flagTerraformProperty: true,

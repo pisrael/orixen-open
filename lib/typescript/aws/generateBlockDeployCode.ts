@@ -3,6 +3,7 @@ import * as Handlebars from 'handlebars';
 import { FileSystem } from '../../../filesystem';
 import { Project } from '../../types';
 import { FunctionBlock } from '../../types/blocks/FunctionBlock';
+import { AwsLambdaConfig } from '../../types/blocks/FunctionBlockLambda';
 import { getBlockPath } from '../../utils';
 
 interface GenerateBlockDeployCodeParams {
@@ -29,7 +30,8 @@ export async function generateBlockDeployCode({
   await copyAwsRuntimeFiles(fs, resourcesPath, blockDeployPath);
   await updatePackageJson(fs, resourcesPath, blockSourcePath, blockDeployPath);
 
-  if (block.properties.lambda?.deployAsDockerImage) {
+  const lambdaConfig = block.properties.deployTarget?.config as AwsLambdaConfig | undefined;
+  if (lambdaConfig?.deployAsDockerImage) {
     await generateDockerfile(fs, blockSourcePath, blockDeployPath, block);
   }
 }
@@ -111,7 +113,8 @@ async function generateDockerfile(
 }
 
 function getDockerBaseImage(block: FunctionBlock): string {
-  const runtime = block.properties.lambda?.lambdaRuntime || 'nodejs22.x';
+  const lambdaCfg = block.properties.deployTarget?.config as AwsLambdaConfig | undefined;
+  const runtime = lambdaCfg?.lambdaRuntime || 'nodejs22.x';
   const baseImages: Record<string, string> = {
     'nodejs22.x': 'public.ecr.aws/lambda/nodejs:22',
     'nodejs20.x': 'public.ecr.aws/lambda/nodejs:20',
