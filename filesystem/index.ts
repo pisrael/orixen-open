@@ -1,3 +1,3 @@
-export { FileSystem } from './FileSystem';
+export type { FileSystem } from './FileSystem';
 export { NodeFileSystem } from './NodeFileSystem';
-export { CopyOptions, ListOptions, FileInfo } from './types';
+export type { CopyOptions, ListOptions, FileInfo } from './types';

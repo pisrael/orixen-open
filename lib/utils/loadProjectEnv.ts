@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 
-import { FileSystem } from '../../filesystem';
+import type { FileSystem } from '../../filesystem';
 
 export async function loadProjectEnv(fs: FileSystem, projectId: string, homeDir: string): Promise<Record<string, string>> {
   const envVars: Record<string, string> = {};

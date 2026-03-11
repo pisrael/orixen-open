@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 
-import { FileSystem } from '../../../filesystem';
+import type { FileSystem } from '../../../filesystem';
 import { Project } from '../../types';
 import { FunctionBlock } from '../../types/blocks/FunctionBlock';
 import { AwsLambdaConfig } from '../../types/blocks/FunctionBlockLambda';

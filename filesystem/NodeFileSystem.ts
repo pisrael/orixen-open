@@ -1,7 +1,7 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import { FileSystem } from './FileSystem';
-import { CopyOptions, ListOptions, FileInfo } from './types';
+import type { FileSystem } from './FileSystem';
+import type { CopyOptions, ListOptions, FileInfo } from './types';
 
 export class NodeFileSystem implements FileSystem {
   private basePath: string;

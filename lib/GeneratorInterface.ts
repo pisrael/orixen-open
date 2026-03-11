@@ -1,4 +1,4 @@
-import { FileSystem } from '../filesystem';
+import type { FileSystem } from '../filesystem';
 import { Block } from './types/blocks/Block';
 import { FunctionBlock } from './types/blocks/FunctionBlock';
 import { Connection } from './types/connections/Connection';

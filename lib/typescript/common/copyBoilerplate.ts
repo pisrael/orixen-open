@@ -1,4 +1,4 @@
-import { FileSystem } from '../../../filesystem';
+import type { FileSystem } from '../../../filesystem';
 import { FunctionBlock } from '../../types/blocks/FunctionBlock';
 import { getBlockPath } from '../../utils';
 

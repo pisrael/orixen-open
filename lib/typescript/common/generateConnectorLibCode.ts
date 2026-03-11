@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 
-import { FileSystem } from '../../../filesystem';
+import type { FileSystem } from '../../../filesystem';
 import { formatFileName } from '../../utils';
 import { ParsedConnectors } from './types';
 
